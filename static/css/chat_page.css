@@ -1,9 +1,14 @@
+
+
+
 .top_div{
     width:100%;
     height:100px;
     background-image:url(../image/web-bgr.png);
     float:left;
     z-index: 3;
+    margin:0;
+    padding:0;
 }
 
 .top_left_logo{
@@ -61,4 +66,44 @@ input::placeholder{
     float:right;
     margin-top:20px;
     margin-right:20px;
+}
+
+.chat-container {
+    width:100%;
+    height: calc(100vh - 160px);
+    background-image:url(../image/robot_gray_2.png);
+    background-repeat:no-repeat;
+    background-position: center;
+    overflow-y:auto;
+
+    /* 기타 스타일 */
+}
+
+.chat-content{
+    height:90%;
+    width:95%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding:10px;
+}
+
+.chat-message {
+    width:fit-content;
+    padding:8px 13px;
+    border-radius:50px;
+    margin-bottom : 8px;
+    font-size:20px;
+}
+
+.user {
+    background-color:#0A82FF;
+    color:white;
+}
+
+.bot {
+    background-color : white;
+    color:#0A82FF;
+    float : left;
 }
