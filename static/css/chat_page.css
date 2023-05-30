@@ -1,0 +1,64 @@
+.top_div{
+    width:100%;
+    height:100px;
+    background-image:url(../image/web-bgr.png);
+    float:left;
+    z-index: 3;
+}
+
+.top_left_logo{
+    width:200px;
+    height:auto;
+    text-align: center;
+    float:left;
+    position:relative;
+    font-size:40px;
+    top:40px;
+    color:white;
+    left:20px;
+}
+
+.robot_img{
+    width:80px;
+    height:auto;
+    filter:blur(50%);
+    position:relative;
+    top:12px;
+    left:25px;
+    z-index:3;
+    
+}
+
+.text_div{
+    width:90%;
+    margin:auto;
+    position:relative;
+    position:bottom;
+}
+
+.bt_text{
+    border-radius: 50px;
+    height: 50px;
+    width: 100%;
+    text-align:center;
+    font-size:20px;
+    border-color:#0A82FF;
+}
+
+input::placeholder{
+    color: #DDDDDD;
+    font-style: italic;
+}
+
+.big_logo{
+    display:flex;
+    justify-content: center;
+
+}
+
+.logo{
+    width:200px;
+    float:right;
+    margin-top:20px;
+    margin-right:20px;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inhachat Main Page</title>
+    <link href="{{url_for('static', filename='css/project1_css.css')}}" rel="stylesheet">
+</head>
+<body style="margin:0;">
+    <div class="main-back">
+        <div style="width:100%;height:auto;">
+            <p class="sub-text">어쩌구 저쩌구 어쩌고 저쩌고</p></div>
+       <h4 class="main-text">인하대학교 챗봇을 체험해보세요!</h4>
+        
+       <div class="btn_group">
+        <button type="button" onclick="location.href='/chatpage'" class="btn1 btn">Try it now</button>
+        <button type="button" onclick="location.href='https://youtu.be/jYvMWxKuCvQ';" class="btn2 btn">More Info</button>        
+       </div>
+       
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+    </div>
+</body>
+</html>
