@@ -1,14 +1,9 @@
-
-
-
 .top_div{
     width:100%;
     height:100px;
     background-image:url(../image/web-bgr.png);
     float:left;
     z-index: 3;
-    margin:0;
-    padding:0;
 }
 
 .top_left_logo{
@@ -68,20 +63,19 @@ input::placeholder{
     margin-right:20px;
 }
 
-.chat-container {
-    width:100%;
-    height: calc(100vh - 160px);
-    background-image:url(../image/robot_gray_2.png);
-    background-repeat:no-repeat;
-    background-position: center;
-    overflow-y:auto;
+.answer_container{
 
-    /* 기타 스타일 */
+    /*
+    width:90%;
+    height:calc(100vh - 150px);
+    overflow-y : auto;
+    */
+    
 }
 
-.chat-content{
-    height:90%;
-    width:95%;
+.qa_container{
+    width:90%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -89,21 +83,26 @@ input::placeholder{
     padding:10px;
 }
 
-.chat-message {
+.question{
     width:fit-content;
     padding:8px 13px;
     border-radius:50px;
     margin-bottom : 8px;
     font-size:20px;
-}
-
-.user {
     background-color:#0A82FF;
     color:white;
+    align-self: flex-end;
 }
 
-.bot {
+.answer{
+    border-style:solid;
+    width:fit-content;
+    padding:8px 13px;
+    border-radius:50px;
+    margin-bottom : 8px;
+    font-size:20px;
     background-color : white;
     color:#0A82FF;
     float : left;
+    align-self: flex-start;
 }
