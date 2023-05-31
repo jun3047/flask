@@ -13,6 +13,10 @@ def project_1():
 def chatpage():
     return render_template('chat_page.html')
 
+@app.route("/infopage")
+def infopage():
+    return render_template('info_page.html')
+
 @app.route("/get_answer", methods=['POST'])
 def get_answer():
     question = request.form.get('question')  # 사용자의 질문을 가져옵니다.
