@@ -1,6 +1,6 @@
 .main-back{
     width: 100%;
-    height: 800px;
+    height: 100vh;
     background-image: url(../image/web-bgr.png);
     background-position:center;
     background-size:cover;
