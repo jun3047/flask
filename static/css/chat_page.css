@@ -64,12 +64,11 @@ input::placeholder{
 }
 
 .answer_container{
-
-    /*
-    width:90%;
-    height:calc(100vh - 150px);
+    
+    width:100%;
+    height:calc(100vh - 250px);
     overflow-y : auto;
-    */
+    padding-top:50px;
     
 }
 
