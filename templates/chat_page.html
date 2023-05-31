@@ -7,29 +7,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{url_for('static', filename='css/chat_page.css')}}" rel="stylesheet">
+    <link href="../static/css/chat_page.css" rel="stylesheet">
 
     <title>Inha ChatBot</title>
 </head>
 <body style="margin:0">
     <div class="top_div">
-        <image class="robot_img" src="{{url_for('static',filename='image/robot_white.png')}}"></image>
-        <image class="logo" src="{{url_for('static',filename='image/login_logo.png')}}"></image>
+        <image class="robot_img" src="../static/image/robot_white.png"></image>
+        <image class="logo" src="../static/image/login_logo.png"></image>
         <div class="top_left_logo">INHA Chat</div>
         <div class="big_logo">
-            <image src="{{url_for('static',filename='image/robot_gray_2.png')}}"></image>
+            <image src="../static/image/robot_gray_2.png"></image>
         </div>
         <div class="text_div">
             <form id="questionForm">
                 <input class="bt_text" type="text" name="question" placeholder="Enter any text here...">
-                <button type="submit">Submit</button>
             </form>
         </div>
     </div>
 
+
     <div id="answerContainer" class="answer_container">
-        <!-- 답변을 출력할 공간 -->
+            <!-- 답변을 출력할 공간 -->
     </div>
+
 
     <script>
         var questionForm = document.getElementById('questionForm');
