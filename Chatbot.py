@@ -53,13 +53,15 @@ if response.query_result.intent.display_name =='WhatisMENU':
       with open('C:\Programming\Python\PBAP\Team\Student_data.json', 'r',encoding='utf8') as f:
          json_data = json.load(f)
          for v in json_data[date][timeslot]['메뉴']:
-            print(v['구분'],v['상세메뉴'],str(v['가격'])+"원")        
+            print(v['구분'],str(v['가격'])+"원")
+            print(", ".join(v['상세메뉴']))
    else:
       with open('C:\Programming\Python\PBAP\Team\Teacher_data.json', 'r',encoding='utf8') as f:
          json_data = json.load(f)
          for v in json_data[date]:
             if timeslot in v['구분']:
-               print(v['구분'],v['메뉴'],str(v['가격'])+"원")         
+               print(v['구분'],str(v['가격'])+"원")
+               print(", ".join(v['메뉴']))
          
 elif response.query_result.intent.display_name=='academicCalendar':
    lst=list(response.query_result.parameters.values())
