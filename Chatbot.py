@@ -65,7 +65,10 @@ elif response.query_result.intent.display_name=='academicCalendar':
    lst=list(response.query_result.parameters.values())
    semester=lst[0]
    type=lst[1]
-   print(f"{semester} {type} O입니다.")
+   with open('C:\Programming\Python\PBAP\Team\AcademicCalendar.json', 'r',encoding='utf8') as f:
+      json_data = json.load(f)
+      for data in json_data[semester][type].keys():
+         print(data)
 elif  response.query_result.intent.display_name=='seasonInfor':
    season_file_path = 'C:\Programming\Python\PBAP\Team\inform(season).pdf'
    print_pdf(season_file_path)
