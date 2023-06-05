@@ -39,7 +39,7 @@
                     if (xhr.status === 200) {
                         var response = JSON.parse(xhr.responseText);
                         var answer = response.answer;
-                        displayAnswer(question, answer);
+                        displayAnswer(undefined, answer);
                     } else {
                         console.error('Error:', xhr.status);
                     }
@@ -49,20 +49,25 @@
             xhr.send(data);
         }
 
-        function displayAnswer(question, answer) {
-            var questionElement = document.createElement('div');
-            questionElement.className = 'question';
-            questionElement.textContent = question;
-
-            var answerElement = document.createElement('div');
-            answerElement.className = 'answer';
-            answerElement.textContent = answer;
-
+        function displayAnswer(question = undefined, answer = undefined) {
+            
             var qaContainer = document.createElement('div');
             qaContainer.className = 'qa_container';
-            qaContainer.appendChild(questionElement);
-            qaContainer.appendChild(answerElement);
 
+            if (question !== undefined ){
+                var questionElement = document.createElement('div');
+                questionElement.className = 'question';
+                questionElement.textContent = question;
+                qaContainer.appendChild(questionElement);                
+            }
+
+            if (answer !== undefined){
+                var answerElement = document.createElement('div');
+                answerElement.className = 'answer';
+                answerElement.textContent = answer;
+                qaContainer.appendChild(answerElement);
+            }
+            
             answerContainer.appendChild(qaContainer);
         }
 
@@ -85,6 +90,7 @@
             var questionInput = document.querySelector('input[name="question"]');
             var question = questionInput.value;
 
+            displayAnswer(question, undefined);
             getAnswer(question);
 
             questionInput.value = '';
