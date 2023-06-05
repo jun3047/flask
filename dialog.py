@@ -62,6 +62,7 @@ def get_answer_form_server(our_query):
          json_data = json.load(f)
          for _data in json_data[semester][type].keys():
             result += _data + "\n"
+            
    elif response.query_result.intent.display_name=='seasonInfor':
       season_file_path = 'inform(season).pdf'
       result = print_pdf(season_file_path)
