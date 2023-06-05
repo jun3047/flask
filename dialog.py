@@ -9,7 +9,6 @@ def get_answer_form_server(our_query):
       data = json.load(f)
 
    result = ""
-
    print("our_query:", our_query)
    
    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] ='private_key.json'
