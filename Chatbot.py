@@ -10,11 +10,11 @@ def print_pdf(file_path):
    print(page.extract_text())
    pdf_file.close()
 # JSON 파일 열기
-with open('C:\Programming\Python\PBAP\Team\inha-chatbot-ewjx-a626da56b8de.json') as f:
+with open('private_key.json') as f:
    data = json.load(f)
 
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] ='C:\Programming\Python\PBAP\Team\inha-chatbot-ewjx-a626da56b8de.json'
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] ='private_key.json'
 DIALOGFLOW_PROJECT_ID = data['project_id']
 DIALOGFLOW_LANGUAGE_CODE ='ko'
 our_query =input()
@@ -39,8 +39,8 @@ while not response.query_result.all_required_params_present :
 
 
 
-# print("Dialogflow's intent:",response.query_result.intent.display_name)
-#모든 파라미터 충족 되었는지 확인 response.query_result.all_required_params_present
+print("Dialogflow's intent:",response.query_result.intent.display_name)
+print("response.query_result.all_required_params_present:", response.query_result.all_required_params_present)
 
 #들어간 토큰 확인.
 if response.query_result.intent.display_name =='WhatisMENU':
@@ -49,14 +49,17 @@ if response.query_result.intent.display_name =='WhatisMENU':
    date=lst[1]
    date=date[5:10:1]
    location=lst[2]
+
+   print("~~~~~~", timeslot,date,location)
+
    if location=='학생식당':
-      with open('C:\Programming\Python\PBAP\Team\Student_data.json', 'r',encoding='utf8') as f:
+      with open('data.json', 'r',encoding='utf8') as f:
          json_data = json.load(f)
          for v in json_data[date][timeslot]['메뉴']:
             print(v['구분'],str(v['가격'])+"원")
             print(", ".join(v['상세메뉴']))
    else:
-      with open('C:\Programming\Python\PBAP\Team\Teacher_data.json', 'r',encoding='utf8') as f:
+      with open('teacher_data.json', 'r',encoding='utf8') as f:
          json_data = json.load(f)
          for v in json_data[date]:
             if timeslot in v['구분']:
@@ -67,10 +70,10 @@ elif response.query_result.intent.display_name=='academicCalendar':
    lst=list(response.query_result.parameters.values())
    semester=lst[0]
    type=lst[1]
-   with open('C:\Programming\Python\PBAP\Team\AcademicCalendar.json', 'r',encoding='utf8') as f:
+   with open('AcademicCalendar.json', 'r',encoding='utf8') as f:
       json_data = json.load(f)
       for data in json_data[semester][type].keys():
          print(data)
-elif  response.query_result.intent.display_name=='seasonInfor':
-   season_file_path = 'C:\Programming\Python\PBAP\Team\inform(season).pdf'
+elif response.query_result.intent.display_name=='seasonInfor':
+   season_file_path = 'inform(season).pdf'
    print_pdf(season_file_path)

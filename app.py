@@ -17,14 +17,15 @@ def chatpage():
 def infopage():
     return render_template('info_page.html')
 
+
 @app.route("/get_answer", methods=['POST'])
 def get_answer():
     question = request.form.get('question')  # 사용자의 질문을 가져옵니다.
 
-    answer = dialog.get_answer_form_server(question)
-    print(answer)
+    answer, data = dialog.get_answer_form_server(question)
 
-    return jsonify({'answer': answer})
+    return jsonify({'answer': answer, 'data': data})
+
 
 if __name__ == "__main__":
     app.run()
