@@ -49,6 +49,10 @@
             var data = 'question=' + encodeURIComponent(question);
             xhr.send(data);
         }
+        
+        function scrollToBottom(){
+            answerContainer.scrollTop = answerContainer.scrollHeight;
+        }
 
         function displayAnswer(question = undefined, answer = undefined, data = undefined) {
             
@@ -84,6 +88,7 @@
             }
             
             answerContainer.appendChild(qaContainer);
+            scrollToBottom();
         }
 
         function initialize() {
