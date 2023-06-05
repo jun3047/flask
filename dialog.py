@@ -1,6 +1,7 @@
 import os
 import google.cloud.dialogflow_v2 as dialogflow
 import json
+import PyPDF2
 
 def get_answer_form_server(our_query):
    
@@ -62,5 +63,22 @@ def get_answer_form_server(our_query):
          json_data = json.load(f)
          for _data in json_data[semester][type].keys():
             result += _data + "\n"
-            
+   elif response.query_result.intent.display_name=='seasonInfor':
+      season_file_path = 'inform(season).pdf'
+      result = print_pdf(season_file_path)
+      print("result:", result)
+
    return response.query_result.fulfillment_text, result
+
+
+def print_pdf(file_path):
+   pdf_file = open(file_path, 'rb')
+   pdf_reader = PyPDF2.PdfReader(pdf_file)
+   page = pdf_reader.pages[0]
+
+
+   print("page.extract_text():", page.extract_text())
+   print("page:", page)
+   pdf_file.close()
+
+   return page.extract_text()
