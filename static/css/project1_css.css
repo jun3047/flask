@@ -1,11 +1,11 @@
 .main-back{
     width: 100%;
     height: 100vh;
-    background-image: url(../image/web-bgr.png);
+    background-image: url(../image/gradation_bgr.png);
     background-position:center;
     background-size:cover;
     background-repeat: no-repeat;
-    background-attachment:scroll;
+    background-attachment:fixed;
     padding: 0.1px;
     float:left;
     position:relative;
@@ -19,6 +19,15 @@
     margin-top:250px;
     margin-bottom:20px;
     letter-spacing: 20px;
+}
+
+.people{
+    width:600px;
+    height: auto;
+    position:fixed;
+    bottom:0;
+    right:0;
+
 }
 
 .main-text{
@@ -37,6 +46,7 @@
 
 .btn_group{
     width:500px;
+    height: auto;
     z-index:4;
     margin-left:auto;
     margin-right:auto;
