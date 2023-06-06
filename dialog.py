@@ -27,46 +27,47 @@ def get_answer_form_server(our_query):
 
    print("response.query_result.intent.display_name:", response.query_result.intent.display_name)
 
+   if response.query_result.all_required_params_present:
+      
+      if response.query_result.intent.display_name =='WhatisMENU':
+         lst=list(response.query_result.parameters.values())
+         timeslot=lst[0]
+         date=lst[1]
+         date=date[5:10:1]
+         location=lst[2]
 
-   if response.query_result.intent.display_name =='WhatisMENU':
-      lst=list(response.query_result.parameters.values())
-      timeslot=lst[0]
-      date=lst[1]
-      date=date[5:10:1]
-      location=lst[2]
-
-      if timeslot=='' or date=='' or location=='':
-         return response.query_result.fulfillment_text, result
+         if timeslot=='' or date=='' or location=='':
+            return response.query_result.fulfillment_text, result
 
 
-      print("~~~~~~", timeslot,date,location)
+         print("~~~~~~", timeslot,date,location)
 
-      if location=='학생식당':
-         with open('data.json', 'r',encoding='utf8') as f:
+         if location=='학생식당':
+            with open('data.json', 'r',encoding='utf8') as f:
+               json_data = json.load(f)
+               for v in json_data[date][timeslot]['메뉴']:
+                  result += v['구분'] + str(v['가격'])+"원" + "\n" + ", ".join(v['상세메뉴']) + "\n"
+
+         else:
+            with open('teacher_data.json', 'r',encoding='utf8') as f:
+               json_data = json.load(f)
+               for v in json_data[date]:
+                  if timeslot in v['구분']:
+                     result += v['구분'] + str(v['가격'])+"원" + "\n" +  ", ".join(v['메뉴']) + "\n"
+               
+      elif response.query_result.intent.display_name=='academicCalendar':
+         lst=list(response.query_result.parameters.values())
+         semester=lst[0]
+         type=lst[1]
+         with open('AcademicCalendar.json', 'r',encoding='utf8') as f:
             json_data = json.load(f)
-            for v in json_data[date][timeslot]['메뉴']:
-               result += v['구분'] + str(v['가격'])+"원" + "\n" + ", ".join(v['상세메뉴']) + "\n"
-
-      else:
-         with open('teacher_data.json', 'r',encoding='utf8') as f:
-            json_data = json.load(f)
-            for v in json_data[date]:
-               if timeslot in v['구분']:
-                  result += v['구분'] + str(v['가격'])+"원" + "\n" +  ", ".join(v['메뉴']) + "\n"
-            
-   elif response.query_result.intent.display_name=='academicCalendar':
-      lst=list(response.query_result.parameters.values())
-      semester=lst[0]
-      type=lst[1]
-      with open('AcademicCalendar.json', 'r',encoding='utf8') as f:
-         json_data = json.load(f)
-         for _data in json_data[semester][type].keys():
-            result += _data + "\n"
-            
-   elif response.query_result.intent.display_name=='seasonInfor':
-      season_file_path = 'inform(season).pdf'
-      result = print_pdf(season_file_path)
-      print("result:", result)
+            for _data in json_data[semester][type].keys():
+               result += _data + "\n"
+               
+      elif response.query_result.intent.display_name=='seasonInfor':
+         season_file_path = 'inform(season).pdf'
+         result = print_pdf(season_file_path)
+         print("result:", result)
 
    return response.query_result.fulfillment_text, result
 
