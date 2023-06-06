@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inhachat Main Page</title>
-    <link href="{{url_for('static', filename='css/project1_css.css')}}" rel="stylesheet">
+    <link href="../static/css/project1_css.css" rel="stylesheet">
 </head>
-<body style="margin:0;">
+<body style="margin:0; overflow:hidden;">
     <div class="main-back">
         <div style="width:100%;height:auto;">
             <p class="sub-text">쉽고 빠르고 편리하게</p></div>
@@ -17,9 +17,9 @@
         <button type="button" onclick="location.href='/chatpage'" class="btn1 btn">Try it now</button>
         <button type="button" onclick="location.href='/infopage';" class="btn2 btn">More Info</button>        
        </div>
+
+       <div class="logo"></div>
+       <img class="people" src="../static/image/people.png"></img>
        
-    <div class="logo">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
-    </div>
 </body>
 </html>
