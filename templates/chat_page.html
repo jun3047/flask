@@ -81,7 +81,9 @@
                 if (data !==""){
                     var answerElement = document.createElement('div');
                     answerElement.className = 'answer';
-                    answerElement.textContent = data;
+                    var formattedData = data.replace(/\n/g, "<br>");
+                    answerElement.innerHTML = formattedData;
+                    
                     qaContainer.appendChild(answerElement);
                 }
             }
