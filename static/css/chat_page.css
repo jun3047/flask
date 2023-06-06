@@ -101,7 +101,7 @@ input::placeholder{
 
 .question{
     width:fit-content;
-    padding:8px 13px;
+    padding:12px 20px;
     border-radius:50px;
     margin-bottom : 8px;
     font-size:20px;
@@ -113,7 +113,7 @@ input::placeholder{
 .answer{
     border-style:solid;
     width:fit-content;
-    padding:8px 13px;
+    padding:12px 20px;
     border-radius:50px;
     margin-bottom : 8px;
     font-size:20px;
